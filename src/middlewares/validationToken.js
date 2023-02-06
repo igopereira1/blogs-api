@@ -7,15 +7,15 @@ const validationToken = (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: 'Token not found' });
   }
-try {
+  try {
     const decoded = jwt.verify(token, secret);
     req.user = decoded.data;
     next();
-} catch (error) {
+  } catch (error) {
     return res.status(401).json({ message: 'Expired or invalid token' });
-} 
+  }
 };
 
 module.exports = {
-    validationToken,
+  validationToken,
 }; 
