@@ -2,14 +2,14 @@ module.exports = (sequelize, DataTypes) => {
   const BlogPost = sequelize.define('BlogPost', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true, },
     title: DataTypes.STRING,
-    content: DataTypes.DATE,
+    content: DataTypes.STRING,
     userId: { type: DataTypes.INTEGER, foreignKey: true, },
     published: DataTypes.STRING,
     updated: DataTypes.DATE,
   },
     {
-      timestamps: true,
-      tableName: 'blogPost',
+      timestamps: false,
+      tableName: 'blog_posts',
       underscored: true,
     });
   BlogPost.associate = (models) => {
